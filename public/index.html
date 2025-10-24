@@ -1,0 +1,422 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <link rel="icon" href="%PUBLIC_URL%/favicon.ico" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>My React App</title>
+  </head>
+    <body>
+		<noscript>You need to enable JavaScript to run this app.</noscript>
+    	<div id="root"></div>
+				<div class="engt-wrapper engt-right-theme engt-wrapper-open" id="engtWrapper">
+			<engagement-triggers></engagement-triggers>
+        	<div class="engt-popup  engt-launch-screen-open" id="engt-popup" tabindex="0">
+		<div class="engt-pages">
+			<div class="engt-common-header"><div class="engt-header">
+		
+		<div class="engt-header-img-section engt-align-center">
+			<div tabindex="0" onkeydown="ENGT_CHAT.onEnterPress()" onclick="ENGT_CHAT.onHeaderBackClick(this);" class="engt-header-back-to-launch engt-tab-selectable"><svg width="30" height="30" viewBox="0 0 30 30" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <path d="M17.5 20L12.5 15L17.5 10" stroke="var(--engt-theme-text-color)" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"></path>
+    </svg></div>
+			
+		</div>
+		<div class="engt-header-info engt-align-center">
+			
+				<span id="engtChatScreenHeader" class="engt-header-info-title">Incredible India</span>
+				
+			
+		</div>
+    
+		<div id="engtHeaderOptionsCHAT" class="engt-header-options">
+			<div role="button" tabindex="0" class="engt-close engt-tab-selectable" id="engtClose" data-wid="exitChatModal" data-cid="exitChatModalContent" data-type="CHAT" onkeydown="ENGT_CHAT.onEnterPress()">
+				
+	<svg width="30" height="30" viewBox="0 0 30 30" fill="none" xmlns="http://www.w3.org/2000/svg">
+		<path d="M20 10L10 20" stroke="var(--engt-theme-text-color)" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"></path>
+		<path d="M10 10L20 20" stroke="var(--engt-theme-text-color)" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"></path>
+	</svg>
+			</div>
+    </div>
+    </div><div class="engt-launcher-header">
+		<div class="engt-launcher-header-top">
+			
+			<span id="botName" class="engt-launcher-title">Incredible India</span>
+		
+			<div class="header-option-wrap">
+				
+				<div id="engtHeaderOptionsLAUNCH" class="engt-header-options">
+			<div role="button" tabindex="0" class="engt-close engt-tab-selectable" id="engtClose" data-wid="exitChatModal" data-cid="exitChatModalContent" data-type="LAUNCH" onkeydown="ENGT_CHAT.onEnterPress()">
+				
+	<svg width="30" height="30" viewBox="0 0 30 30" fill="none" xmlns="http://www.w3.org/2000/svg">
+		<path d="M20 10L10 20" stroke="var(--engt-theme-text-color)" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"></path>
+		<path d="M10 10L20 20" stroke="var(--engt-theme-text-color)" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"></path>
+	</svg>
+			</div>
+    </div>
+			</div>
+		</div>
+		
+		<span id="botDescription" class="engt-launcher-description">Ask me any question, i'd love to hear what brought you here!</span>
+		<button class="engt-button engt-button-radius-18 engt-button-secondary" id="startNewConversationBtn" style="margin-top: 10px; border: unset; font-weight: 600;">START A NEW CONVERSATION</button>
+    </div></div>
+	    	<div class="engt-launch-screen" id="engtLaunchScreen">
+		<div class="engt-launcher-details" id="engtLaunchScreenDetails" onscroll="ENGT_CHAT.onScrollToBottom(event, this)">
+			
+		<div class="engt-launch-preview engt-launch-preview-hidden" id="launchPreview" style="animation: 0.4s ease-out 0.2s 1 normal both running launch-screen-animation-in;">
+			<span class="engt-launch-preview-header" id="launchPreviewHeader">Here's a preview of your ongoing conversation</span>
+			
+			<div class="engt-launch-preview-go">
+				<div class="engt-launch-preview-message">
+					<span class="engt-text" id="launchPreviewMessage"></span>
+					<span class="time" id="launchPreviewTime">3:30 PM</span>
+				</div>
+				<div class="engt-msg-preview-wrap">
+					<div style="fill: #1C110DFF;color: #1C110DFF; cursor: pointer" tabindex="0" onclick="ENGT_CHAT.showChatScreen()" onkeydown="ENGT_CHAT.onEnterPress()" class="engt-go-back-to-chat engt-tab-selectable">
+						<span id="goBackConversation">Go back to conversation</span>
+						<svg width="18" height="8" viewBox="0 0 18 8" xmlns="http://www.w3.org/2000/svg" fill="inherit">
+		<path d="M1 3.5C0.723858 3.5 0.5 3.72386 0.5 4C0.5 4.27614 0.723858 4.5 1 4.5V3.5ZM17.3536 4.35355C17.5488 4.15829 17.5488 3.84171 17.3536 3.64645L14.1716 0.464466C13.9763 0.269204 13.6597 0.269204 13.4645 0.464466C13.2692 0.659728 13.2692 0.976311 13.4645 1.17157L16.2929 4L13.4645 6.82843C13.2692 7.02369 13.2692 7.34027 13.4645 7.53553C13.6597 7.7308 13.9763 7.7308 14.1716 7.53553L17.3536 4.35355ZM1 4.5H17V3.5H1V4.5Z" fill="inherit"></path>
+	</svg>
+					</div>
+					
+		<div class="engt-badge engt-badge-mini engt-badge-hidden" id="unreadCountLaunchScreen" style="">0</div>
+    
+				</div>
+			</div>
+		</div>
+	
+			
+		<div class="engt-launch-query" style="animation: 0.4s ease-out 0.4s 1 normal both running launch-screen-animation-in;">
+			<span id="launchQueryTitle" class="engt-launch-query-text">Ask a query</span>
+			<div class="engt-launch-query-input" style="animation: 0.3s ease-out 0.4s 1 normal both running growXFromHalf;">
+				<input type="text" class="engt-tab-selectable" id="engtQueryInput" placeholder="Enter your question here" tabindex="0">
+				<span class="engt-launch-query-send-btn"><svg width="10" height="10" viewBox="0 0 10 10" fill="none" xmlns="http://www.w3.org/2000/svg">
+		<path d="M1.62189 8.57988C1.51657 8.57988 1.42178 8.49571 1.42178 8.37999C1.42178 8.19061 1.44285 7.86447 1.50604 7.49624L0.937323 6.9176C0.105317 7.89603 0.0105317 9.29529 0 9.80029C0 9.90549 0.0842537 10.0002 0.200103 10.0002C0.705625 9.98966 2.10634 9.89497 3.08579 9.06383L2.50655 8.49571C2.13794 8.55884 1.81146 8.56936 1.62189 8.57988Z" fill="#C3C3C3"></path>
+		<path d="M7.77261 6.39165L7.75155 6.33905C10.1107 3.84563 10.0685 1.26805 9.96321 0.394831C9.94215 0.205458 9.7947 0.0581676 9.60513 0.0371262C8.731 -0.0680812 6.15073 -0.110164 3.65471 2.24648L3.61258 2.23596C2.79111 1.85721 1.83272 2.03607 1.19029 2.66731L0.274028 3.58261C0.0633933 3.79303 0.126584 4.14021 0.389877 4.25594L1.87485 4.93979L1.36933 5.73937C1.25348 5.92874 1.27454 6.18124 1.44305 6.34957L3.65471 8.55892C3.81269 8.71673 4.06545 8.7483 4.26555 8.63257L5.06596 8.12757L5.75052 9.611C5.8769 9.87402 6.22445 9.93714 6.42455 9.72673L7.34081 8.81142C7.98325 8.16966 8.15175 7.20175 7.77261 6.39165ZM5.6768 4.32959C5.23447 3.88772 5.23447 3.18283 5.6768 2.74096C6.11913 2.29908 6.82476 2.29908 7.26709 2.74096C7.70942 3.18283 7.69889 3.88772 7.26709 4.32959C6.83529 4.76094 6.11913 4.76094 5.6768 4.32959Z" fill="#C3C3C3"></path>
+	</svg></span>
+			</div>
+		</div>
+	
+			
+		<div class="engt-launch-cards" id="engtLaunchCards" style="animation: 0.4s ease-out 0.6s 1 normal both running launch-screen-animation-in;">
+			<span class="engt-launch-cards-title">
+				<label class="engt-text" id="exploreMore">Explore more on Incredible India...</label>
+				<span class="dots"><carousel-dots></carousel-dots></span>
+			</span>
+			<div class="engt-carousel-wrapper engt-msg-border-bot" dir="ltr">
+		<div class="engt-carousel-vertical" id="engtCarousel-fryq4m" style=" --slide-count: 4;" data-active-slide="0" data-slide-length="4" data-id-no="engtCarousel-fryq4m">
+			  	<div class="engt-card engt-card-medium" id="0" data-active="true" data-next="false" style="margin-bottom: 8px;background-image: linear-gradient(to top,#ffffff,#ffffff);color: #403F42;" dir="auto">
+			<div class="engt-card-clickable">
+				<img src="https://bb.branding-element.com/prod/108310/108310-Destination.jpg" alt="" loader="lazy" tabindex="0">
+				<div class="engt-card-info" style="">
+					<span class="title title-ellipsis-2" dir="auto" style="position: relative;">Destinations🌴</span>
+					<span class="description description-ellipsis-2" dir="auto" style="position: relative;">
+				for every bucket list
+			</span>
+				</div>
+			</div>
+			
+			<div class="engt-card-btns">
+				<button class="engt-button engt-button-radius-8 engt-button-base" tabindex="0" data-qa="CARD_BUTTON">Click Here</button>
+			</div>
+		</div><div class="engt-card engt-card-medium" id="1" data-active="false" data-next="true" style="margin-bottom: 8px;background-image: linear-gradient(to top,#ffffff,#ffffff);color: #403F42;background-image: linear-gradient(to top,#ffffff,#ffffff);color: #403F42;" dir="auto">
+			<div class="engt-card-clickable">
+				<img src="https://bb.branding-element.com/prod/108310/108310-Attraction.jpg" alt="" loader="lazy" tabindex="0">
+				<div class="engt-card-info" style="">
+					<span class="title title-ellipsis-2" dir="auto" style="position: relative;">Attractions</span>
+					<span class="description description-ellipsis-2" dir="auto" style="position: relative;">
+				Worth a thousand stories
+			</span>
+				</div>
+			</div>
+			
+			<div class="engt-card-btns">
+				<button class="engt-button engt-button-radius-8 engt-button-base" tabindex="0" data-qa="CARD_BUTTON">Click Here</button>
+			</div>
+		</div><div class="engt-card engt-card-medium" id="2" data-active="false" data-next="false" style="margin-bottom: 8px;background-image: linear-gradient(to top,#ffffff,#ffffff);color: #403F42;background-image: linear-gradient(to top,#ffffff,#ffffff);color: #403F42;background-image: linear-gradient(to top,#ffffff,#ffffff);color: #403F42;" dir="auto">
+			<div class="engt-card-clickable">
+				<img src="https://bb.branding-element.com/prod/108310/108310-Experience.jpg" alt="" loader="lazy" tabindex="0">
+				<div class="engt-card-info" style="">
+					<span class="title title-ellipsis-2" dir="auto" style="position: relative;">Experiences</span>
+					<span class="description description-ellipsis-2" dir="auto" style="position: relative;">
+				For Every Passion
+			</span>
+				</div>
+			</div>
+			
+			<div class="engt-card-btns">
+				<button class="engt-button engt-button-radius-8 engt-button-base" tabindex="0" data-qa="CARD_BUTTON">Click Here</button>
+			</div>
+		</div><div class="engt-card engt-card-medium" id="3" data-active="false" data-next="false" style="margin-bottom: 8px;background-image: linear-gradient(to top,#ffffff,#ffffff);color: #403F42;background-image: linear-gradient(to top,#ffffff,#ffffff);color: #403F42;background-image: linear-gradient(to top,#ffffff,#ffffff);color: #403F42;background-image: linear-gradient(to top,#ffffff,#ffffff);color: #403F42;" dir="auto">
+			<div class="engt-card-clickable">
+				<img src="https://bb.branding-element.com/prod/108310/108310-106001-Ai%20avatar%20temp.jpeg" alt="" loader="lazy" tabindex="0">
+				<div class="engt-card-info" style="">
+					<span class="title title-ellipsis-2" dir="auto" style="position: relative;">Your AI Tour Guide for Exploring Incredible India</span>
+					<span class="description description-ellipsis-2" dir="auto" style="position: relative;">
+				Chat with Bharti
+			</span>
+				</div>
+			</div>
+			
+			<div class="engt-card-btns">
+				<button class="engt-button engt-button-radius-8 engt-button-base" tabindex="0" data-qa="CARD_BUTTON">Click Here </button>
+			</div>
+		</div>
+				<div class="engt-carousel-overlay" style="display: none;"></div>
+		</div>
+    </div>
+		</div>
+    
+			<button id="engtScrollBtn" class="engt-scrl-down-btn  " aria-label="scroll-down" data-scroll-for="engtLaunchScreenDetails" onclick="ENGT_CHAT.scrollDown(this)" style="animation: 0.4s ease-out 0.8s 1 normal both running launch-screen-animation-in;">
+			<svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <rect width="24" height="24" rx="12" fill="inherit"></rect>
+        <path d="M8 14L12 18L16 14" stroke="inherit" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"></path>
+        <path opacity="0.6" d="M8 8L12 12L16 8" stroke="inherit" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"></path>
+    </svg>
+    
+		</button>
+		
+		</div>
+		<div class="engt-powered">
+            <div class="engt-powered-text"><img src="https://app.engati.com/static/js/assets/poweredBy.svg"><a href="https://bit.ly/3P4ODFp" target="_blank" class="poweredByLink">Powered by&nbsp;Engati</a>	</div>
+			</div>
+    </div>
+	    	<div class="engt-chat-screen" id="engtChatScreen">
+        <div class="engt-chat-wrapper" style="background-image: url(https://bb.branding-element.com/prod/108310/108310-Chabot-Background-Doodle-art.png); background-size:cover; background-position: center top;">
+            
+            <div class="engt-chat-content-wrapper" id="engtChatWrapper">
+                <div id="engtChatContent" class="engt-chat-content" onscroll="ENGT_CHAT.checkAndfetchMessages();ENGT_CHAT.onScrollToBottom(event, this)"><span id="timestamp-a9gfi9" class="engt-timestamp" data-messagetype="divider">
+        16 September, 2025 9:41 AM
+    </span></div>
+                <button id="engtScrollBtn" class="engt-scrl-down-btn engt-scrl-down-btn-hidden" aria-label="scroll-down" data-scroll-for="engtChatContent" onclick="ENGT_CHAT.scrollDown(this)">
+			<svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <rect width="24" height="24" rx="12" fill="inherit"></rect>
+        <path d="M8 14L12 18L16 14" stroke="inherit" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"></path>
+        <path opacity="0.6" d="M8 8L12 12L16 8" stroke="inherit" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"></path>
+    </svg>
+    
+		</button>
+		
+                <div id="engt-typing-indicator" class="engt-hidden"><strong>Typing...</strong></div>
+                
+            </div>
+        </div>
+        
+        <div class="engt-popup-footer" id="engtChatFooter">
+            <div class="engt-hidden" id="engtQuoteText"></div>
+            <respond-area>
+                <div class="engt-reply-box-wrapper" style="background: rgb(255, 255, 255);">
+		<div id="engtReplyInput" style="position: relative; background: #ffffff; width: 100%;">
+			<div id="engtInputError"></div>
+			<div class="engt-reply-area">	
+				<div role="textbox" contenteditable="" class="engt-user-msg-input" id="engtUserMessage" data-placeholder="Write a reply..."></div>
+				
+				
+	<button id="engtFaqAutocompleteBtnOn" class="engt-btn-icons engt-tab-selectable engt-hidden" aria-label="FaqAutocomplete">
+		
+<svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+<path d="M15 11L12 14L9 11" fill="#403F42"></path>
+<path d="M15 11L12 14L9 11L15 11Z" stroke="#403F42" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"></path>
+</svg>
+
+	</button>
+	<button id="engtFaqAutocompleteBtnOff" class="engt-btn-icons engt-tab-selectable engt-hidden" aria-label="FaqAutocomplete">
+		
+<svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+<path d="M15 13L12 10L9 13" fill="#403F42"></path>
+<path d="M15 13L12 10L9 13L15 13Z" stroke="#403F42" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"></path>
+</svg>
+
+	</button>
+				<button id="engtSendBtn" class="engt-btn-icons engt-tab-selectable engt-hidden engt-reply-btns" aria-label="Send Message">
+					
+    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="inherit" xmlns="http://www.w3.org/2000/svg">
+        <path stroke="inherit" d="M17.8332 6.16663L11.4165 12.5833" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round"></path>
+        <path stroke="inherit" d="M17.8332 6.16663L13.7498 17.8333L11.4165 12.5833L6.1665 10.25L17.8332 6.16663Z" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round"></path>
+    </svg>
+    
+				</button>
+			</div>
+			<div id="engt-non-input-mode" class="engt-voice-input" style="display:none">
+			</div>
+		</div>
+		
+	<div id="engtVoiceWrapper">
+		    <button id="engtVoiceInputBtn" class="engt-btn-icons  engt-tab-selectable">
+		      <svg width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
+<path d="M8 0.666656C7.46957 0.666656 6.96086 0.87737 6.58579 1.25244C6.21071 1.62752 6 2.13622 6 2.66666V7.99999C6 8.53042 6.21071 9.03913 6.58579 9.4142C6.96086 9.78928 7.46957 9.99999 8 9.99999C8.53043 9.99999 9.03914 9.78928 9.41421 9.4142C9.78929 9.03913 10 8.53042 10 7.99999V2.66666C10 2.13622 9.78929 1.62752 9.41421 1.25244C9.03914 0.87737 8.53043 0.666656 8 0.666656V0.666656Z" stroke="#403F42" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round"></path>
+<path d="M12.6668 6.66666V7.99999C12.6668 9.23767 12.1752 10.4247 11.3 11.2998C10.4248 12.175 9.23784 12.6667 8.00016 12.6667C6.76249 12.6667 5.5755 12.175 4.70033 11.2998C3.82516 10.4247 3.3335 9.23767 3.3335 7.99999V6.66666" stroke="#403F42" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round"></path>
+<path d="M8 12.6667V15.3333" stroke="#403F42" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round"></path>
+<path d="M5.3335 15.3333H10.6668" stroke="#403F42" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round"></path>
+</svg>
+		    </button>
+    </div>
+		
+	<button id="engtMenuBtn" class="engt-btn-icons engt-tab-selectable engt-reply-btns" aria-label="Menu">
+		
+    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <path d="M9 12H18" stroke="inherit" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"></path>
+        <path d="M6 8H18" stroke="inherit" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"></path>
+        <path d="M6 16H18" stroke="inherit" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"></path>
+    </svg>
+
+	</button>
+    </div>
+            </respond-area>
+            <rud-input-area></rud-input-area>
+            <validated-msg></validated-msg>
+            <div class="engt-powered">
+            <div class="engt-powered-text"><img src="https://app.engati.com/static/js/assets/poweredBy.svg"><a href="https://bit.ly/3P4ODFp" target="_blank" class="poweredByLink">Powered by&nbsp;Engati</a>	</div>
+			</div>
+        </div>
+    
+    </div>
+		</div>
+		<div class="engt-settings" id="engtChatSettings" tabindex="-1">
+		<div class="engt-chat-setings-header">
+		
+		<div class="engt-chat-settings-back engt-tab-selectable" tabindex="0" style="visibility: hidden" onkeydown="ENGT_CHAT.onEnterPress()"><svg width="30" height="30" viewBox="0 0 30 30" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <path d="M17.5 20L12.5 15L17.5 10" stroke="var(--engt-theme-text-color)" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"></path>
+    </svg></div>
+	
+		<span>Chat settings</span>
+		
+		<div role="button" tabindex="0" class="engt-chat-settings-close engt-tab-selectable" onkeydown="ENGT_CHAT.onEnterPress()">
+			
+	<svg width="30" height="30" viewBox="0 0 30 30" fill="none" xmlns="http://www.w3.org/2000/svg">
+		<path d="M20 10L10 20" stroke="var(--engt-theme-text-color)" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"></path>
+		<path d="M10 10L20 20" stroke="var(--engt-theme-text-color)" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"></path>
+	</svg>
+		</div>
+	
+    </div>
+		<ul class="engt-chat-settings-options" id="chatSettingOptions">
+			<li id="engtFontSize" class="engt-menu-option-list" tabindex="0" data-active-click="true">
+                    <div class="engt-menu-option-name" onkeydown="ENGT_CHAT.onEnterPress()">
+										  <span>Font Size</span>
+										  <img src="https://app.engati.com/static/js/assets/down.svg" class="engt-menu-down" loader="lazy">
+										  <img src="https://app.engati.com/static/js/assets/up.svg" class="engt-menu-up" loader="lazy">
+										</div>
+										<div class="engt-option-tab" id="engtFontSizeTab"><div id="engtFontSettings" class="engt-font-settings">
+		<div class="engt-font-settings-wrapper">
+			<span class="engt-font-settings-sub-title">Select a font size for your bot:</span>
+			<div class="engt-font-settings-options" data-selected="md">
+				<button class="engt-font-settings-option" tabindex="0" data-id="sm" data-active="false"><div style="height: 36px; width: 36px;">
+<svg width="36" height="36" viewBox="0 0 36 36" fill="#403f42" xmlns="http://www.w3.org/2000/svg">
+<rect opacity="0.1" width="36" height="36" rx="18" fill="inherit"></rect>
+<path d="M21.7458 14.2471V10.7588C21.7458 10.0392 22.3292 9.4559 23.0487 9.4559V9.4559H24.3516" stroke="inherit" stroke-width="1.34489" stroke-linecap="round"></path>
+<path d="M14.2639 14.2471V10.7588C14.2639 10.0392 13.6806 9.4559 12.9611 9.4559V9.4559H11.6582" stroke="inherit" stroke-width="1.34489" stroke-linecap="round"></path>
+<path d="M24.5183 21.1353C24.5183 25.7772 21.6203 29.5409 18.046 29.5409C14.4717 29.5409 11.5737 25.7772 11.5737 21.1353C11.5737 16.4934 14.4717 12.7297 18.046 12.7297C21.6203 12.7297 24.5183 16.4934 24.5183 21.1353Z" fill="white"></path>
+<rect x="5.35205" y="12.397" width="25.3007" height="12.9446" rx="6.47228" fill="white" style="width: 25.3007px"></rect>
+<path d="M24.1797 22.648H11.8235C9.7346 22.648 8.04102 20.9547 8.04102 18.8655C8.04102 16.7766 9.7346 15.083 11.8235 15.083H24.1797C26.2686 15.083 27.9622 16.7766 27.9622 18.8655C27.9622 20.9547 26.2686 22.648 24.1797 22.648Z" fill="inherit"></path>
+<circle cx="14.2596" cy="18.8585" r="1.65309" stroke="white" stroke-width="0.896593"></circle>
+<circle cx="21.8216" cy="18.8577" r="1.65309" stroke="white" stroke-width="0.896593"></circle>
+</svg>
+
+</div><div class="option-name" style="font-size: 12px; line-height: 16px; padding: 10px 12px;">Small Font</div></button>
+				<button class="engt-font-settings-option" tabindex="0" data-id="md" data-active="true"><div style="height: 36px; width: 36px;">
+<svg width="36" height="36" viewBox="0 0 36 36" fill="#403f42" xmlns="http://www.w3.org/2000/svg">
+<rect opacity="0.1" width="36" height="36" rx="18" fill="inherit"></rect>
+<path d="M21.7458 14.2471V10.7588C21.7458 10.0392 22.3292 9.4559 23.0487 9.4559V9.4559H24.3516" stroke="inherit" stroke-width="1.34489" stroke-linecap="round"></path>
+<path d="M14.2639 14.2471V10.7588C14.2639 10.0392 13.6806 9.4559 12.9611 9.4559V9.4559H11.6582" stroke="inherit" stroke-width="1.34489" stroke-linecap="round"></path>
+<path d="M24.5183 21.1353C24.5183 25.7772 21.6203 29.5409 18.046 29.5409C14.4717 29.5409 11.5737 25.7772 11.5737 21.1353C11.5737 16.4934 14.4717 12.7297 18.046 12.7297C21.6203 12.7297 24.5183 16.4934 24.5183 21.1353Z" fill="white"></path>
+<rect x="5.35205" y="12.397" width="25.3007" height="12.9446" rx="6.47228" fill="white" style="width: 25.3007px"></rect>
+<path d="M24.1797 22.648H11.8235C9.7346 22.648 8.04102 20.9547 8.04102 18.8655C8.04102 16.7766 9.7346 15.083 11.8235 15.083H24.1797C26.2686 15.083 27.9622 16.7766 27.9622 18.8655C27.9622 20.9547 26.2686 22.648 24.1797 22.648Z" fill="inherit"></path>
+<circle cx="14.2596" cy="18.8585" r="1.65309" stroke="white" stroke-width="0.896593"></circle>
+<circle cx="21.8216" cy="18.8577" r="1.65309" stroke="white" stroke-width="0.896593"></circle>
+</svg>
+
+</div><div class="option-name" style="font-size: 14px; line-height: 20px; padding: 8px 12px;">Medium Font (This is the default size)</div></button>
+				<button class="engt-font-settings-option" tabindex="0" data-id="lg" data-active="false"><div style="height: 36px; width: 36px;">
+<svg width="36" height="36" viewBox="0 0 36 36" fill="#403f42" xmlns="http://www.w3.org/2000/svg">
+<rect opacity="0.1" width="36" height="36" rx="18" fill="inherit"></rect>
+<path d="M21.7458 14.2471V10.7588C21.7458 10.0392 22.3292 9.4559 23.0487 9.4559V9.4559H24.3516" stroke="inherit" stroke-width="1.34489" stroke-linecap="round"></path>
+<path d="M14.2639 14.2471V10.7588C14.2639 10.0392 13.6806 9.4559 12.9611 9.4559V9.4559H11.6582" stroke="inherit" stroke-width="1.34489" stroke-linecap="round"></path>
+<path d="M24.5183 21.1353C24.5183 25.7772 21.6203 29.5409 18.046 29.5409C14.4717 29.5409 11.5737 25.7772 11.5737 21.1353C11.5737 16.4934 14.4717 12.7297 18.046 12.7297C21.6203 12.7297 24.5183 16.4934 24.5183 21.1353Z" fill="white"></path>
+<rect x="5.35205" y="12.397" width="25.3007" height="12.9446" rx="6.47228" fill="white" style="width: 25.3007px"></rect>
+<path d="M24.1797 22.648H11.8235C9.7346 22.648 8.04102 20.9547 8.04102 18.8655C8.04102 16.7766 9.7346 15.083 11.8235 15.083H24.1797C26.2686 15.083 27.9622 16.7766 27.9622 18.8655C27.9622 20.9547 26.2686 22.648 24.1797 22.648Z" fill="inherit"></path>
+<circle cx="14.2596" cy="18.8585" r="1.65309" stroke="white" stroke-width="0.896593"></circle>
+<circle cx="21.8216" cy="18.8577" r="1.65309" stroke="white" stroke-width="0.896593"></circle>
+</svg>
+
+</div><div class="option-name" style="font-size: 16px; line-height: 20px; padding: 8px 12px;">Large Font</div></button>
+			</div>
+		</div>
+		<div class="engt-font-settings-cta"><button class="engt-button engt-button-radius-18 engt-button-primary">Confirm</button></div>
+	</div></div>				
+            </li>
+    
+		</ul>
+	</div>
+		<div id="replyAreaUpload" class="engt-modal" tabindex="-1" style="">
+		<div id="replyAreaUploadContent" class="engt-modal-content" style="background-color: transparent">
+			<span tabindex="0" class="engt-modal-close tab-selectable" data-wid="replyAreaUpload" data-cid="replyAreaUploadContent">
+			
+	<svg width="30" height="30" viewBox="0 0 30 30" fill="none" xmlns="http://www.w3.org/2000/svg">
+		<path d="M20 10L10 20" stroke="#000" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"></path>
+		<path d="M10 10L20 20" stroke="#000" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"></path>
+	</svg>
+			</span>
+			<div class="engt-attachment-modal-content">
+		<div class="engt-preview-img">
+			<img src="https://app.engati.com/static/js/assets/cardImg.svg" id="attachmentPreviewImg" onerror="this.src='https://app.engati.com/static/js/assets/cardImg.svg'" loader="lazy">
+			<div class="engt-preview-text" id="attachmentPreviewFileName"></div>
+			<div class="engt-upload-error"></div>
+		</div>
+        <div class="engt-preview-respond">
+            <div role="textbox" contenteditable="" id="sendAttachmentInputBox" class="engt-attachment-respondbox" data-placeholder="Write a reply..."></div>
+            <button id="sendAttachmentBtn" class="engt-btn-icons engt-tab-selectable engt-reply-btns" aria-label="Send Attachment With Message">
+	    		
+    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="inherit" xmlns="http://www.w3.org/2000/svg">
+        <path stroke="inherit" d="M17.8332 6.16663L11.4165 12.5833" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round"></path>
+        <path stroke="inherit" d="M17.8332 6.16663L13.7498 17.8333L11.4165 12.5833L6.1665 10.25L17.8332 6.16663Z" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round"></path>
+    </svg>
+    
+	    	</button>
+        </div>
+		<div id="attachmentPreviewLoader" class="engt-loader"></div>
+    </div>
+		</div>
+    </div>
+		<div id="exitChatModal" class="engt-modal" tabindex="-1" style="">
+		<div id="exitChatModalContent" class="engt-modal-content" style="">
+			<span tabindex="0" class="engt-modal-close tab-selectable" data-wid="exitChatModal" data-cid="exitChatModalContent">
+			
+	<svg width="30" height="30" viewBox="0 0 30 30" fill="none" xmlns="http://www.w3.org/2000/svg">
+		<path d="M20 10L10 20" stroke="#000" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"></path>
+		<path d="M10 10L20 20" stroke="#000" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"></path>
+	</svg>
+			</span>
+			<div class="engt-header-modal-body"><span id="engtHeaderBody" style="text-align: center;margin-bottom: 16px;">Are you sure you want to close the chat?</span><exit-live-chat-btn></exit-live-chat-btn><button class="engt-button engt-button-radius-18 engt-button-primary" id="engtHeaderCloseBtn">Close Chat</button></div>
+		</div>
+    </div>
+		
+    </div>
+			<div class="engt-launch-icon-box">
+		
+		<div id="engtClosedCallout" class="engt-closed-callout engt-closed-callout-hidden">
+			<div class="engt-closed-callout-btn">
+	<svg width="24" height="24" viewBox="0 0 30 30" fill="none" xmlns="http://www.w3.org/2000/svg">
+		<path d="M20 10L10 20" stroke="#000" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"></path>
+		<path d="M10 10L20 20" stroke="#000" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"></path>
+	</svg></div>
+			<div id="engtCalloutText" class="engt-closed-callout-text">Namaste 🙏 how can I guide you?</div>
+		</div>
+		<img tabindex="-1" src="https://bb.branding-element.com/prod/108310/108310-Bot-Avtar.png" id="engtLauncherIcon" class="engt-launcher-icon engt-tab-selectable engt-launcher-icon-hidden" alt="bot-launch-icon" loader="lazy">
+		<div class="engt-notification-badge">
+			
+		<div class="engt-badge engt-badge-small engt-badge-hidden" id="unreadNotificationBadge" style="">0</div>
+    
+		</div>
+    </div>
+			
+		<div class="engt-popover-overlay" id="engtPopoverOverlay">
+			<div class="engt-popover" id="engtPopover"></div>
+		</div>
+	
+		</div>
+
+	<script id="engtCustomScript" defer="" src="https://bb.branding-element.com/prod/108310/108310-script.js"></script>
+
+	<section class="engt engt-font-md"></section>
+</body>
+</html>

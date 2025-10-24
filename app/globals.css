@@ -1,0 +1,347 @@
+@import "tailwindcss";
+@import "tw-animate-css";
+@import "leaflet/dist/leaflet.css";
+@import "leaflet.markercluster/dist/MarkerCluster.css";
+@import "leaflet.markercluster/dist/MarkerCluster.Default.css";
+@import "leaflet-control-geocoder/dist/Control.Geocoder.css";
+
+
+@custom-variant dark (&:is(.dark *));
+
+:root {
+  /* Sky-themed color palette */
+  --background: #f0f4f8; /* Light Cloud Grey */
+  --foreground: #475569; /* Dark Slate */
+  --card: #ffffff; /* Pure White */
+  --card-foreground: #475569; /* Dark Slate */
+  --popover: #ffffff; /* White */
+  --popover-foreground: #374151; /* Dark Slate */
+  --primary: #a0d9e8; /* Soft Sky Blue */
+  --primary-foreground: #ffffff; /* White */
+  --secondary: #ffb74d; /* Warm Sunlit Gold */
+  --secondary-foreground: #ffffff; /* White */
+  --muted: #b0bec5; /* Muted Slate */
+  --muted-foreground: #64748b; /* Medium Slate for better readability */
+  --accent: #ffb74d; /* Warm Sunlit Gold */
+  --accent-foreground: #475569; /* Dark Slate */
+  --destructive: #ea580c; /* Orange */
+  --destructive-foreground: #ffffff; /* White */
+  --border: #e0e0e0; /* Light border */
+  --input: #ffffff; /* White */
+  --ring: #a0d9e8; /* Soft Sky Blue */
+  --chart-1: #a0d9e8; /* Sky Blue */
+  --chart-2: #ffb74d; /* Gold */
+  --chart-3: #b0bec5; /* Slate */
+  --chart-4: #ffffff; /* White */
+  --chart-5: #f0f4f8; /* Light Grey */
+  --radius: 0.75rem; /* Rounded corners */
+  --sidebar: #f0f4f8; /* Light Cloud Grey */
+  --sidebar-foreground: #475569; /* Dark Slate */
+  --sidebar-primary: #a0d9e8; /* Sky Blue */
+  --sidebar-primary-foreground: #ffffff; /* White */
+  --sidebar-accent: #ffb74d; /* Gold */
+  --sidebar-accent-foreground: #475569; /* Dark Slate */
+  --sidebar-border: #e0e0e0; /* Light border */
+  --sidebar-ring: #a0d9e8; /* Sky Blue */
+}
+
+.dark {
+  --background: #1e293b;
+  --foreground: #f1f5f9;
+  --card: #334155;
+  --card-foreground: #f1f5f9;
+  --popover: #334155;
+  --popover-foreground: #f1f5f9;
+  --primary: #7dd3fc;
+  --primary-foreground: #0f172a;
+  --secondary: #fcd34d;
+  --secondary-foreground: #0f172a;
+  --muted: #475569;
+  --muted-foreground: #cbd5e1;
+  --accent: #fcd34d;
+  --accent-foreground: #0f172a;
+  --destructive: #f97316;
+  --destructive-foreground: #ffffff;
+  --border: #475569;
+  --input: #334155;
+  --ring: #7dd3fc;
+  --chart-1: #7dd3fc;
+  --chart-2: #fcd34d;
+  --chart-3: #94a3b8;
+  --chart-4: #334155;
+  --chart-5: #1e293b;
+  --sidebar: #1e293b;
+  --sidebar-foreground: #f1f5f9;
+  --sidebar-primary: #7dd3fc;
+  --sidebar-primary-foreground: #0f172a;
+  --sidebar-accent: #fcd34d;
+  --sidebar-accent-foreground: #0f172a;
+  --sidebar-border: #475569;
+  --sidebar-ring: #7dd3fc;
+}
+
+@theme inline {
+  --font-sans: var(--font-geist-sans);
+  --font-mono: var(--font-geist-mono);
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --color-card: var(--card);
+  --color-card-foreground: var(--card-foreground);
+  --color-popover: var(--popover);
+  --color-popover-foreground: var(--popover-foreground);
+  --color-primary: var(--primary);
+  --color-primary-foreground: var(--primary-foreground);
+  --color-secondary: var(--secondary);
+  --color-secondary-foreground: var(--secondary-foreground);
+  --color-muted: var(--muted);
+  --color-muted-foreground: var(--muted-foreground);
+  --color-accent: var(--accent);
+  --color-accent-foreground: var(--accent-foreground);
+  --color-destructive: var(--destructive);
+  --color-destructive-foreground: var(--destructive-foreground);
+  --color-border: var(--border);
+  --color-input: var(--input);
+  --color-ring: var(--ring);
+  --color-chart-1: var(--chart-1);
+  --color-chart-2: var(--chart-2);
+  --color-chart-3: var(--chart-3);
+  --color-chart-4: var(--chart-4);
+  --color-chart-5: var(--chart-5);
+  --radius-sm: calc(var(--radius) - 4px);
+  --radius-md: calc(var(--radius) - 2px);
+  --radius-lg: var(--radius);
+  --radius-xl: calc(var(--radius) + 4px);
+  --color-sidebar: var(--sidebar);
+  --color-sidebar-foreground: var(--sidebar-foreground);
+  --color-sidebar-primary: var(--sidebar-primary);
+  --color-sidebar-primary-foreground: var(--sidebar-primary-foreground);
+  --color-sidebar-accent: var(--sidebar-accent);
+  --color-sidebar-accent-foreground: var(--sidebar-accent-foreground);
+  --color-sidebar-border: var(--sidebar-border);
+  --color-sidebar-ring: var(--sidebar-ring);
+}
+
+@layer base {
+  * {
+    @apply border-border outline-ring/50;
+  }
+  body {
+    @apply bg-background text-foreground;
+  }
+}
+
+/* Custom animations for cloud-like effects */
+@keyframes float {
+  0%,
+  100% {
+    transform: translateY(0px);
+  }
+  50% {
+    transform: translateY(-10px);
+  }
+}
+
+@keyframes drift {
+  0% {
+    transform: translateX(0px);
+  }
+  100% {
+    transform: translateX(20px);
+  }
+}
+
+@keyframes fadeInUp {
+  0% {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes shimmer {
+  0% {
+    background-position: -200% 0;
+  }
+  100% {
+    background-position: 200% 0;
+  }
+}
+
+.animate-float {
+  animation: float 6s ease-in-out infinite;
+}
+
+.animate-drift {
+  animation: drift 20s linear infinite;
+}
+
+.animate-fade-in-up {
+  animation: fadeInUp 0.8s ease-out forwards;
+}
+
+.animate-shimmer {
+  background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.4), transparent);
+  background-size: 200% 100%;
+  animation: shimmer 2s infinite;
+}
+
+/* Chatbot animations */
+@keyframes slideInUp {
+  0% {
+    transform: translateY(100%);
+    opacity: 0;
+  }
+  100% {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}
+
+@keyframes slideOutDown {
+  0% {
+    transform: translateY(0);
+    opacity: 1;
+  }
+  100% {
+    transform: translateY(100%);
+    opacity: 0;
+  }
+}
+
+@keyframes pulse {
+  0%,
+  100% {
+    transform: scale(1);
+  }
+  50% {
+    transform: scale(1.05);
+  }
+}
+
+.animate-slide-in-up {
+  animation: slideInUp 0.3s ease-out forwards;
+}
+
+.animate-slide-out-down {
+  animation: slideOutDown 0.3s ease-in forwards;
+}
+
+.animate-pulse-gentle {
+  animation: pulse 2s ease-in-out infinite;
+}
+
+/* Cloud-like backdrop effects */
+.cloud-bg {
+  background: linear-gradient(135deg, #f0f4f8 0%, #e2e8f0 50%, #f8fafc 100%);
+  position: relative;
+}
+
+.cloud-bg::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: radial-gradient(circle at 20% 80%, rgba(160, 217, 232, 0.1) 0%, transparent 50%),
+    radial-gradient(circle at 80% 20%, rgba(255, 183, 77, 0.1) 0%, transparent 50%),
+    radial-gradient(circle at 40% 40%, rgba(160, 217, 232, 0.05) 0%, transparent 50%);
+  pointer-events: none;
+}
+
+.leaflet-tooltip.custom-tooltip {
+  background: white;
+  border-radius: 0.5rem;
+  padding: 0.5rem;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.15);
+  color: #1f2937; /* Tailwind gray-800 */
+}
+
+
+body {
+  margin: 0;
+  font-family: Arial, sans-serif;
+  background: #f5f5f5;
+}
+
+.engt-wrapper {
+  display: flex;
+  justify-content: center;
+  padding: 20px;
+}
+
+.engt-popup {
+  background: white;
+  border-radius: 16px;
+  padding: 20px;
+  max-width: 1000px;
+  width: 100%;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+}
+
+.engt-header {
+  font-size: 24px;
+  font-weight: bold;
+  text-align: center;
+  margin-bottom: 20px;
+}
+
+.engt-cards {
+  display: grid;
+  gap: 20px;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+}
+
+.engt-card {
+  background: #fff;
+  border-radius: 12px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+  text-align: center;
+  padding: 15px;
+  transition: transform 0.2s;
+}
+
+.engt-card:hover {
+  transform: translateY(-5px);
+}
+
+.engt-card img {
+  width: 100%;
+  height: 150px;
+  object-fit: cover;
+  border-radius: 8px;
+}
+
+.engt-card h2 {
+  font-size: 18px;
+  margin: 12px 0 6px;
+}
+
+.engt-card p {
+  color: #555;
+  font-size: 14px;
+}
+
+.engt-card button {
+  margin-top: 10px;
+  padding: 8px 14px;
+  border: none;
+  border-radius: 6px;
+  background: #0077ff;
+  color: white;
+  cursor: pointer;
+}
+
+.engt-card button:hover {
+  background: #005fcc;
+}
+
+.engt-footer {
+  text-align: center;
+  font-size: 14px;
+  color: #777;
+  margin-top: 30px;
+}
