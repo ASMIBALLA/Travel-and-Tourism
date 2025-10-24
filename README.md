@@ -41,9 +41,9 @@ MapModal
 
 TransportOptions
 
-Monastery360Viewer (new)
+Monastery360Viewer
 
-FestivalVideoGallery (new)
+FestivalVideoGallery
 
 ⚙️ Custom Hooks & Styles
 Includes useBookingState for trip management, and custom CSS/Tailwind for a modern travel aesthetic.
@@ -86,31 +86,6 @@ Start the development server
 
 npm run dev
 
-🗂️ Project Structure
-components/
- ├── FestivalCalendar.tsx
- ├── InteractiveMap.tsx
- ├── BookingHistory.tsx
- ├── Confirmation.tsx
- ├── LocationInput.tsx
- ├── MapModal.tsx
- ├── TransportOptions.tsx
- ├── Monastery360Viewer.tsx      # New 360° panorama component
- ├── FestivalVideoGallery.tsx    # New video showcase component
-hooks/
- └── useBookingState.ts
-styles/
- └── travelglobal.css
-public/
- ├── sikkim_festivals_full.xlsx
- ├── assets/
- │    ├── monasteries/
- │    │     ├── Rumtek360.jpg
- │    │     ├── Pemayangtse360.jpg
- │    │     └── Tashiding360.jpg
- │    └── videos/
- │          ├── festival_intro.mp4
- │          └── tsechu_highlights.mp4
 
 🖼️ UI / UX Overview
 <div style="display: flex; flex-wrap: wrap; gap: 10px; justify-content: center;"> <div style="flex: 0 0 48%;"><img width="100%" alt="map" src="https://github.com/user-attachments/assets/e95da65e-83df-419d-8e84-0a99b028a6c7" /></div> <div style="flex: 0 0 48%;"><img width="100%" alt="calendar" src="https://github.com/user-attachments/assets/2f07d9c8-bf76-4e7e-acf6-c90f57c9e11c" /></div> <div style="flex: 0 0 48%;"><img width="100%" alt="monastery360" src="https://github.com/user-attachments/assets/8031da5f-1894-4633-80d4-88b29e5fb589" /></div> <div style="flex: 0 0 48%;"><img width="100%" alt="video-gallery" src="https://github.com/user-attachments/assets/2f07dff9-58c6-4879-aabe-7dea2a76ab63" /></div> </div>
