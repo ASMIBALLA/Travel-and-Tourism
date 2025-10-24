@@ -51,7 +51,7 @@ A feature-rich, interactive web platform for exploring Sikkim's monasteries, fes
 ## 📑 Installation
 
 1. Clone the repository:
-git clone https://github.com/YOUR-GITHUB-USERNAME/sikkim-monastery-360.git
+git clone https://github.com/YOUR-GITHUB-USERNAME/Travel-and-Tourism.git
 cd sikkim-monastery
 
 text
@@ -63,8 +63,6 @@ text
 
 3. Set up festival data:
 <<<<<<< HEAD
-   - Place `festivals.xlsx` (or your festival data file) into `/public`
-=======
    - Place `sikkim_festivals_full.xlsx` (or your festival data file) into `/public`
 >>>>>>> 2ec3bf30089cc2c12b50e935d4607dd67f059d78
 
@@ -73,7 +71,7 @@ npm run dev
 
 text
 
-5. Access locally at [http://localhost:3000](http://localhost:3000)
+5. Access locally at [http://localhost:3000]
 
 ---
 
